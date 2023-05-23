@@ -1,0 +1,16 @@
+<div class='container'>
+  <div class='row d-flex justify-content-center'>
+    <div class='col-4'>
+      <ul class='list-group'>
+      <% @tasks.each do |task| %>
+        <li class='list-group-item'>
+          <i class="fa-regular fa-square<%=  task.completed ? "-check" : "" %>"></i>
+          <%= link_to " #{task.title} - #{task.details}", "tasks/#{task.id}", class: 'text-decoration-none' %>
+          <%= link_to "Delete", "tasks/#{task.id}", class: 'btn btn-danger', data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+        </li>
+      <% end %>
+      </ul>
+      <%= link_to "Add Task", new_task_path, class: 'btn btn-primary'%>
+    </div>
+  <div>
+</div>

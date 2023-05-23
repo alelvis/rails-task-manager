@@ -1,0 +1,19 @@
+<div class='container'>
+  <div class='row d-flex justify-content-center'>
+    <div class='col-4'>
+      <%= form_with model: @task do |f| %>
+        <%= f.label :title, class: 'form-label'%>
+        <%= f.text_field :title, class: 'form-control' %>
+        <%= f.label :details, class: 'form-label' %>
+        <%= f.text_field :details, class: 'form-control' %>
+        <% unless @task.new_record? %>
+          <%= f.label :completed, class: 'form-check-label' %>
+          <%= f.check_box :completed, class: 'form-check-input'%>
+        <% end %>
+        <%= f.submit class:'btn btn-primary'%>
+      <% end %>
+
+      <%= link_to "Back", "/tasks", class: 'btn btn-secondary'%>
+    </div>
+  </div>
+</div>
